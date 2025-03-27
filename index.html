@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Ungkapan Perasaan</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 80vw;
+            height: 60vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.8) translateX(100%);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .active {
+            opacity: 1;
+            transform: scale(1) translateX(0);
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: #ff758c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background: #ff4f7a;
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 150px;
+            margin: 10px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .options button {
+            display: block;
+            margin: 10px;
+            padding: 10px 15px;
+            font-size: 1em;
+            background: #ff4f7a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .options button:hover {
+            background: #ff758c;
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .heart {
+            width: 200px;
+            animation: heartBeat 1s infinite;
+        }
+    </style>
+    <script>
+        let slideIndex = 0;
+
+        function nextSlide() {
+            let slides = document.querySelectorAll('.slide');
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide active">
+            <h1 style="animation: fadeIn 2s;">Hai! Aku punya sesuatu untukmu ❤️</h1>
+            <p style="animation: fadeIn 3s;">Aku ingin menyampaikan sesuatu yang penting!</p>
+            <p>Aku harap kamu siap mendengarnya...</p>
+            <img class="heart" src="https://www.pngall.com/wp-content/uploads/2016/07/Heart-PNG-Pic.png" alt="Heart">
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+        <div class="slide">
+            <h2>Aku ingin mengatakan...</h2>
+            <p>Kamu adalah seseorang yang sangat spesial dalam hidupku. 💖</p>
+            <p>Aku selalu menunggu momen di mana kita bisa berbicara lebih lama.</p>
+            <p>Setiap hari, aku merasa semakin menyayangimu. ❤️</p>
+            <p>Aku ingin menghabiskan lebih banyak waktu bersamamu.</p>
+            <p>Karena kamu membuat hariku lebih berwarna dan penuh makna.</p>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+        <div class="slide">
+            <h2>Aku suka kamu! ❤️</h2>
+            <p>Hatiku selalu berdebar saat bersamamu.</p>
+            <p>Kamu adalah alasan aku tersenyum setiap hari.</p>
+            <p>Aku ingin selalu ada di sisimu, berbagi tawa, kebahagiaan, dan kenangan indah bersama.</p>
+            <img class="heart" src="https://www.pngall.com/wp-content/uploads/2016/07/Heart-PNG-Pic.png" alt="Love">
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+        <div class="slide">
+            <h2>Jika aku bisa menghabiskan waktu bersamamu selamanya...</h2>
+            <p>Aku akan menjaga senyummu, kebahagiaanmu, dan selalu ada untukmu. 😊</p>
+            <p>Bersamamu, semuanya terasa lebih indah dan penuh warna.</p>
+            <p>Setiap hari, aku ingin menciptakan kenangan baru bersamamu.</p>
+            <button class="button" onclick="nextSlide()">Lanjut</button>
+        </div>
+        <div class="slide">
+            <h2>Jawablah dengan jujur! 😊</h2>
+            <p>Pilih jawabanmu di bawah ini:</p>
+            <div class="options">
+                <button onclick="alert('Yeay! Aku sangat senang! ❤️ Kita akan bahagia bersama!')">Aku juga suka kamu! 💕</button>
+                <button onclick="alert('Tidak apa-apa, aku tetap menghargai perasaanmu 😊 Aku akan tetap mendukungmu!')">Maaf, aku hanya ingin berteman 😢</button>
+            </div>
+        </div>
+    </div>
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung tag audio.
+    </audio>
+</body>
+</html>
